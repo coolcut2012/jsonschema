@@ -1,0 +1,45 @@
+{
+  "clientId": null,
+  "query": {
+    "queryType": "iplearning",
+    "dataSource": "IP_LEARNING_VIEW",
+    "parameters": {
+      "match": [
+        {
+          "type": "substring",
+          "fieldKey": "FQDN_NAME",
+          "fieldValues": [
+            "360"
+          ]
+        }
+      ],
+      "range": [
+        {
+          "type": "ge",
+          "fieldKey": "PROTOCOL",
+          "fieldValues": [
+            "DNS"
+          ]
+        },
+        {
+          "type": "eq",
+          "fieldKey": "DEPTH",
+          "fieldValues": [
+            1
+          ]
+        },
+        {
+          "type": "ge",
+          "fieldKey": "UNIQ_CIP",
+          "fieldValues": [
+            5
+          ]
+        }
+      ],
+      "intervals": [
+        "2020-07-01 00:00:00/2020-08-02 00:00:00"
+      ],
+      "limit": "15"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "title": "服务推荐",
+  "description": "查询",
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "唯一标识符",
+      "type": "null"
+    },
+    "query": {
+      "description": "查询条件",
+      "type": "object",
+      "required": [
+        "dataSource"
+      ],
+      "properties": {
+        "queryType": {
+          "description": "查询类型",
+          "type": "string"
+        },
+        "dataSource": {
+          "description": "查询数据源",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "查询参数",
+          "type": "object",
+          "properties": {
+            "match": {
+              "description": "查询参数",
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "匹配符号",
+                      "type": "string"
+                    },
+                    "fieldKey": {
+                      "description": "查询字段",
+                      "type": "string"
+                    },
+                    "fieldValues": {
+                      "description": "查询参数",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "range": {
+              "description": "查询参数",
+              "type": "array",
+              "additionalItems": true,
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "匹配符号",
+                      "type": "string"
+                    },
+                    "fieldKey": {
+                      "description": "查询字段",
+                      "type": "string"
+                    },
+                    "fieldValues": {
+                      "description": "查询参数",
+                      "type": "array",
+                      "items": {
+                        "type": ["integer","string"]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "intervals": {
+              "description": "查询时间",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "limit": {
+              "description": "查询条数",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
